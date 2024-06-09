@@ -25,7 +25,8 @@
     "ocr",
     "utility",
     "screen reader",
-    "screenshot reader"
+    "screenshot reader",
+    "clipboard"
   ],
   "author": "Nathaniel Camomot",
   "license": "MIT",
