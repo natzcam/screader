@@ -4,7 +4,7 @@ import { watch }  from '../lib/screader.js'
 import { program } from 'commander'
 import { readFileSync } from 'fs'
 
-const version = JSON.parse(readFileSync('./package.json')).version
+const version = JSON.parse(readFileSync(new URL('../package.json', import.meta.url))).version
 program
   .name(`screader`)
   .description(`screenshot reader - ${version}`)
