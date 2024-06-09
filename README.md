@@ -10,7 +10,7 @@ Simple utility that watches for new images on your screenshot directory, convert
 - On first startup, it will ask for the directory where you save screenshots.
 - You can reset config with `screader --reset`
 
-![](https://github.com/natzcam/screader/demo.gif)
+![](https://github.com/natzcam/screader/blob/main/demo.gif)
 
 ## todo
 1. single executable
