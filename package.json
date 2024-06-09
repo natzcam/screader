@@ -2,13 +2,18 @@
   "name": "screader",
   "version": "1.0.0",
   "description": "screenshot reader",
-  "type": "module",
-  "main": "./bin/screader.js",
+  "main": "./bin/screader",
   "bin": {
-    "screader": "./bin/screader.js"
+    "screader": "./bin/screader"
+  },
+  "engines": {
+    "node": ">=18.20.3",
+    "npm": ">=10.7.0"
   },
   "scripts": {
-    "start": "./bin/screader.js"
+    "start": "./bin/screader",
+    "package": "webpack && pkg --out-path ./dist ./dist/main.js",
+    "lint": "standard ."
   },
   "repository": {
     "type": "git",
@@ -24,7 +29,10 @@
   "author": "Nathaniel Camomot",
   "license": "MIT",
   "devDependencies": {
-    "standard": "^17.1.0"
+    "pkg": "^5.8.1",
+    "standard": "^17.1.0",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "@inquirer/prompts": "^5.0.5",

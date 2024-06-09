@@ -1,3 +1,3 @@
 @echo off
 
-node "%~dp0\screader.js" %*
+node "%~dp0\screader" %*
