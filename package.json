@@ -16,10 +16,9 @@
     "build": "esbuild ./bin/screader --bundle --platform=node --outfile=dist/screader.js && pkg --out-path ./dist ./dist/screader.js",
     "lint": "standard ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com-natzcam:natzcam/screader.git"
-  },
+  "homepage": "https://github.com/natzcam/screader",
+  "repository": "https://github.com/natzcam/screader",
+  "bugs": "https://github.com/natzcam/screader/issues",
   "keywords": [
     "screenshot",
     "ocr",
