@@ -4,3 +4,6 @@ Simple utility that watches for new images on your screenshot directory, convert
 # install
 1. Install node18, https://nodejs.org/en/download/
 2. `npm install -g screader`
+
+# todo
+1. single executable
