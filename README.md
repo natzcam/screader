@@ -1,5 +1,5 @@
 # screader
-Simple utility that watches for new images on your screenshot directory, converts it to text, and saves to your clipboard, ready for pasting. Useful in workflows where you can't select the text like on images or proprietary interfaces or windows.
+Simple utility converts screenshots to text, and then saves to your clipboard, ready for pasting. Useful in workflows where you can't select the text like on images or proprietary interfaces or windows.
 
 ## install
 1. Install [node18](https://nodejs.org/en/download/), 
