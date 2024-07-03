@@ -17,9 +17,14 @@ createWorker('eng', OEM.DEFAULT, {
 const createWindow = async () => {
   // Create the browser window.
   const opts = {
+    fullscreen: false,
+    fullscreenable: false,
     width: 800,
     height: 600,
-    transparent: true
+    frame: true,
+    transparent: true,
+    movable: true,
+    alwaysOnTop: true
   }
   // apply saved window bounds
   Object.assign(opts, config.get('winBounds'))
@@ -29,6 +34,7 @@ const createWindow = async () => {
   mainWindow.setMenu(null)
   if (process.platform === 'darwin') {
     app.dock.hide()
+    mainWindow.setWindowButtonVisibility(true)
   }
 
   mainWindow.on('close', () => {
