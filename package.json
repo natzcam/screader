@@ -1,8 +1,7 @@
 {
   "name": "screader",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "screenshot ocr/reader to clipboard",
-  "type": "module",
   "homepage": "https://github.com/natzcam/screader",
   "repository": "https://github.com/natzcam/screader",
   "bugs": "https://github.com/natzcam/screader/issues",
@@ -16,23 +15,32 @@
   ],
   "author": "Nathaniel Camomot",
   "license": "MIT",
-  "main": "./lib/screader.js",
-  "bin": {
-    "screader": "./bin/screader"
-  },
+  "main": "main.js",
   "engines": {
     "node": ">=18.20.3",
     "npm": ">=10.7.0"
   },
   "scripts": {
-    "start": "qode ./lib/screader.js",
-    "lint": "standard ."
+    "start": "electron-forge start",
+    "lint": "standard .",
+    "package": "electron-forge package",
+    "make": "electron-forge make --targets=@electron-forge/maker-zip"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^7.4.0",
+    "@electron-forge/maker-deb": "^7.4.0",
+    "@electron-forge/maker-rpm": "^7.4.0",
+    "@electron-forge/maker-squirrel": "^7.4.0",
+    "@electron-forge/maker-zip": "^7.4.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
+    "@electron-forge/plugin-fuses": "^7.4.0",
+    "@electron/fuses": "^1.8.0",
+    "electron": "^31.1.0",
     "standard": "^17.1.0"
   },
   "dependencies": {
-    "@nodegui/nodegui": "^0.67.0",
+    "electron-config": "^2.0.0",
+    "electron-squirrel-startup": "^1.0.1",
     "node-screenshots": "^0.2.0",
     "tesseract.js": "^5.1.0"
   }
