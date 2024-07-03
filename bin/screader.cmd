@@ -1,3 +1,3 @@
 @echo off
 
-node "%~dp0\screader" %*
+npx qode "%~dp0\..\lib\screader.js" %*
