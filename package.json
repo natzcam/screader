@@ -21,6 +21,7 @@
     "npm": ">=10.7.0"
   },
   "scripts": {
+    "dev": "electron .",
     "start": "electron-forge start",
     "lint": "standard .",
     "package": "electron-forge package",

@@ -5,31 +5,35 @@ const { Monitor } = require('node-screenshots')
 
 const config = new Config()
 
+let worker
+createWorker('eng', OEM.DEFAULT, {
+  logger: (m) => {
+    console.log(`${m.status}: ${m.progress}`)
+  }
+}).then(w => {
+  worker = w
+})
+
 const createWindow = async () => {
   // Create the browser window.
   const opts = {
-    // make window transparent
-    transparent: true,
     width: 800,
-    height: 600
+    height: 600,
+    transparent: true
   }
   // apply saved window bounds
   Object.assign(opts, config.get('winBounds'))
   const mainWindow = new BrowserWindow(opts)
 
+  // don't show menu
   mainWindow.setMenu(null)
+  if (process.platform === 'darwin') {
+    app.dock.hide()
+  }
 
   mainWindow.on('close', () => {
     // save window bounds
     config.set('winBounds', mainWindow.getBounds())
-  })
-
-  const worker = await createWorker('eng', OEM.DEFAULT, {
-    logger: (m) => {
-      console.log(m.status)
-      // set progress
-      mainWindow.setProgressBar(m.progress)
-    }
   })
 
   mainWindow.on('minimize', async () => {
@@ -42,16 +46,21 @@ const createWindow = async () => {
 
     // recognize text from image
     const buffer = Buffer.from(await newImage.toPng())
-    const ret = await worker.recognize(buffer)
+    const ret = await worker?.recognize(buffer)
 
     // save to clipboard
-    clipboard.writeText(ret.data.text)
+    clipboard.writeText(ret?.data?.text)
     // show notification
     new Notification({
       title: 'Recognized text',
       body: 'Saved to clipboard'
     }).show()
   })
+
+  mainWindow.loadFile('index.html')
+
+  // Open the DevTools.
+  // mainWindow.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
