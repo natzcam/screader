@@ -1,4 +1,4 @@
-name: Release app
+name: Release App
 on:
   workflow_dispatch:
 jobs:
@@ -7,9 +7,10 @@ jobs:
       matrix:
         os:
           [
-            { name: 'linux', image: 'ubuntu-latest' },
-            { name: 'windows', image: 'windows-latest' },
-            { name: 'macos', image: 'macos-latest' },
+            { name: 'linux', image: 'ubuntu-22.04' },
+            { name: 'windows', image: 'windows-2019' },
+            { name: 'macos-14', image: 'macos-14-large' },
+            { name: 'macos-arm-14', image: 'macos-14-xlarge' },
           ]
     runs-on: ${{ matrix.os.image }}
     steps:
