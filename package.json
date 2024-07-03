@@ -16,7 +16,7 @@
   ],
   "author": "Nathaniel Camomot",
   "license": "MIT",
-  "main": "./bin/screader",
+  "main": "./lib/screader.js",
   "bin": {
     "screader": "./bin/screader"
   },
