@@ -8,20 +8,8 @@ module.exports = {
   rebuildConfig: {},
   makers: [
     {
-      name: '@electron-forge/maker-squirrel',
-      config: {}
-    },
-    {
       name: '@electron-forge/maker-zip',
       platforms: ['darwin', 'linux', 'windows']
-    },
-    {
-      name: '@electron-forge/maker-deb',
-      config: {}
-    },
-    {
-      name: '@electron-forge/maker-rpm',
-      config: {}
     }
   ],
   plugins: [
@@ -40,5 +28,17 @@ module.exports = {
       [FuseV1Options.EnableEmbeddedAsarIntegrityValidation]: true,
       [FuseV1Options.OnlyLoadAppFromAsar]: true
     })
+  ],
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'natzcam',
+          name: 'screader'
+        },
+        prerelease: true
+      }
+    }
   ]
 }

@@ -24,7 +24,8 @@
     "start": "electron-forge start",
     "lint": "standard .",
     "package": "electron-forge package",
-    "make": "electron-forge make --targets=@electron-forge/maker-zip"
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.4.0",
