@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Notification, clipboard } = require('electron')
+const { screen, app, BrowserWindow, Notification, clipboard } = require('electron')
 const { OEM, createWorker } = require('tesseract.js')
 const Config = require('electron-config')
 const { Monitor } = require('node-screenshots')
@@ -33,7 +33,6 @@ const createWindow = async () => {
   // don't show menu
   mainWindow.setMenu(null)
   if (process.platform === 'darwin') {
-    app.dock.hide()
     mainWindow.setWindowButtonVisibility(true)
   }
 
@@ -43,12 +42,21 @@ const createWindow = async () => {
   })
 
   mainWindow.on('minimize', async () => {
-    mainWindow.setProgressBar(0)
     // capture screen rect
     const bounds = mainWindow.getBounds()
-    const monitor = Monitor.fromPoint(bounds.x, bounds.y)
+    const scaleFactor = screen.getPrimaryDisplay().scaleFactor
+    const monitor = Monitor.fromPoint(bounds.x * scaleFactor, bounds.y * scaleFactor)
     const image = await monitor.captureImage()
-    const newImage = await image.crop(bounds.x, bounds.y, bounds.width, bounds.height)
+
+    // exclude title bar
+    const contentHeight = mainWindow.getContentSize()[1]
+    const y = bounds.y + (bounds.height - contentHeight)
+
+    const newImage = await image.crop(
+      bounds.x * scaleFactor,
+      y * scaleFactor,
+      bounds.width * scaleFactor,
+      contentHeight * scaleFactor)
 
     // recognize text from image
     const buffer = Buffer.from(await newImage.toPng())
