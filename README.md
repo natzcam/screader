@@ -7,7 +7,7 @@
 2. `npm start`
 3. Adjust window to where you want to capture text.
 ![demo1](demo/demo1.png)
-4. Minimize to trigger text recognition and saving to clipboard.
+4. Minimize the window to trigger text recognition and saving to clipboard.
 ![demo2](demo/demo2.png)
 
 ## todo
