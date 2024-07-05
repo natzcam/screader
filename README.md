@@ -1,16 +1,15 @@
 # screader
-Simple utility that converts screenshots to text, and then saves to your clipboard, ready for pasting. Useful in workflows where you can't select the text like on images or proprietary interfaces or windows.
-
-## install
-1. Install [node18](https://nodejs.org/en/download/), 
-2. `npm install -g screader`
+- Simple utility that converts screen areas to text, and then saves to your clipboard, ready for pasting. 
+- Useful in workflows where you can't select the text like on images or proprietary interfaces/windows.
 
 ## usage
-- Run `screader`
-- On first startup, it will ask for the directory where you save screenshots.
-- You can reset config with `screader --reset`
+1. Install [node18](https://nodejs.org/en/download/), 
+2. `npm start`
+3. Adjust window to where you want to capture text.
+4. Minimize to trigger text recognition and saving to clipboard.
 
-![demo](demo.gif)
+![demo1](demo/demo1.png)
+![demo2](demo/demo2.png)
 
 ## todo
 1. single executable
