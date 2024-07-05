@@ -6,9 +6,8 @@
 1. Install [node18](https://nodejs.org/en/download/), 
 2. `npm start`
 3. Adjust window to where you want to capture text.
-4. Minimize to trigger text recognition and saving to clipboard.
-
 ![demo1](demo/demo1.png)
+4. Minimize to trigger text recognition and saving to clipboard.
 ![demo2](demo/demo2.png)
 
 ## todo
