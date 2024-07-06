@@ -7,7 +7,7 @@ jobs:
       matrix:
         os:
           [
-            { name: 'windows', image: 'windows-2019' },
+            { name: 'macos-14', image: 'macos-14-large' },
           ]
     runs-on: ${{ matrix.os.image }}
     steps:
