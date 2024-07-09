@@ -4,7 +4,7 @@
 
 ## usage
 1. Go to [Releases](https://github.com/natzcam/screader/releases), download zip, run app.
-2. Alternative is install [nodejs](https://nodejs.org/en/download), download the source code, then run `npm start`
+2. Alternative is to install [nodejs](https://nodejs.org/en/download), download the source code, then run `npm start`
 3. Adjust window to where you want to capture text.
 ![demo1](demo/demo1.png)
 4. Minimize the window to trigger text recognition and saving to clipboard.
